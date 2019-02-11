@@ -101,6 +101,42 @@ module.exports = {
 
 ## 플러그인(Plugins)
 
+로더는 특정 타입의 모듈을 변환하는데 사용되지만 플러그인을 사용하면 번들의 최적화, 에섹관리 및 환경변수 주입과 같은 광범위한 작업을 수행할 수 있죠.
+
+플러그인의 인터페이스와 사용법을 익혀 웹팩의 능력을 확장하세요.
+
+플러그인을 사용하려면 require()로 플러그인을 가져와 plugins 배열에 추가해야 합니다. 대부분의 플러그인은 옵션으로 커스터마이즈가 가능합니다.
+다른 목적의 설정에서 플러그인이 여러번 사용된다면 new로 플러그인의 인스턴스를 만들어야 합니다.
+
+webpack.config.js
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //npn으로 인스톨
+const webpack = require('webpack'); //빌트인 플러그인에 접근하기 위해 로딩
+
+module.exports = {
+  module: {
+    rules: [
+      { test: /\.txt$/, use: 'raw-loader' }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({template: './src/index.html'})
+  ]
+};
+```
+위 설정에서 html-webpack-plugin은 모든 생성된 번들에 주입되어 앱에 대한 html파일을 생성합니다.
+
+> webpack이 제공하는 많은 플러그인이 있으니 플러그인목록을 확인하세요.
+
+> 더 자세한 정보는 <a target="_blank" href="플러그인.md">플러그인</a>으로
+
 ## 모드(Mode)
+mode속성에 "development", "production", "none" 중 하나를 설정하면 각 환경에 맞춘 웹팩의 내장 최적화가 설정됩니다.
+기본 값은 "production"입니다.
+
+> 더 자세한 정보는 <a target="_blank" href="모드.md">모드</a>로
 
 ## 브라우저호환성(Browser Compatibility)
+
+웹팩은 es5호환 브라우저를 지원합니다. 웹팩은 import(), require.ensure()를 위해 Promise가 필요합니다. 구형브라우저라면 이에 대한 polyfill이 필요합니다.
