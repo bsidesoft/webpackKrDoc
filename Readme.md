@@ -40,8 +40,32 @@ module.exports = {
 > 더 자세한 정보는 <a target="_blank" href="엔트리포인트.md">엔트리포인트</a>로
 
 ## 아웃풋(Output)
+아웃풋은 웹팩이 생성한 번들의 저장할 위치와 이름을 알려줍니다. 기본값은 ./dist/main.js고 다른 파일이 생성되는 경우는 ./dist폴더입니다.
+
+webpack.config.js 파일로 output를 별도로 지정할 수 있습니다.
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './path/to/my/entry/file.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'my-first-webpack.bundle.js'
+  }
+};
+```
+
+위 코드에서 output.filename과 output.path을 이용해 번들의 위치와 이름을 지정합니다(path는 nodejs의 모듈입니다)
+
+> 역주: output의 경로는 반드시 완전한 절대 경로여야 합니다.
+
+> 더 자세한 정보는 <a target="_blank" href="아웃풋.md">아웃풋</a>으로
 
 ## 로더(Loaders)
+웹팩은 오직 js와 json만 이해할 수 있습니다. 로더를 사용하면 다른 형식의 파일을 의존성 그래프에 추가할 수 있게 변환하여 앱에서 사용할 수 있게 처리합니다.
+
+> 어떤 모듈(예를 들면 .css파일)은 웹팩에서 임포트하는 사양이므로 다른 번들러나 태스크러너에서 지원안될 수도 있습니다. 로더는 보다 정확한 의존성 그래프를 만들도록 해줍니다.
 
 ## 플러그인(Plugins)
 
