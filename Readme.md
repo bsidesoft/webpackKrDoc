@@ -20,9 +20,9 @@
 이 문서는 위 개념에 대한 이해와 개념에 대한 구체적인 사례 및 링크를 제공합니다.
 하지만 모듈을 번들하고 내부에서 어떻게 작동하는가에 대한 기초 개념이 궁금하면 아래 링크를 참고하세요.
 
-<a target="_blank" href="https://www.youtube.com/watch?v=UNMkLHzofQI">앱 수동 빌드</a>
-<a target="_blank" href="https://www.youtube.com/watch?v=Gc9-7PBqOC8">간단한 모듈 번들러 라이브코딩</a>
-<a target="_blank" href="https://github.com/ronami/minipack">간단한 모듈 번들러의 상세한 설명</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=UNMkLHzofQI">앱 수동 빌드</a>
+* <a target="_blank" href="https://www.youtube.com/watch?v=Gc9-7PBqOC8">간단한 모듈 번들러 라이브코딩</a>
+* <a target="_blank" href="https://github.com/ronami/minipack">간단한 모듈 번들러의 상세한 설명</a>
 
 ## 엔트리(Entry)
 진입점은 웹팩 모듈이 쓰게 될 내부의 의존성 그래프를 만들기 위해 필요합니다. 웹팩은 진입점을 통해 직간접적으로 의존하는 모듈과 라이브러리를 파악합니다.
@@ -111,7 +111,7 @@ module.exports = {
 webpack.config.js
 
 ```js
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //npn으로 인스톨
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //npm으로 인스톨
 const webpack = require('webpack'); //빌트인 플러그인에 접근하기 위해 로딩
 
 module.exports = {
@@ -140,3 +140,7 @@ mode속성에 "development", "production", "none" 중 하나를 설정하면 각
 ## 브라우저호환성(Browser Compatibility)
 
 웹팩은 es5호환 브라우저를 지원합니다. 웹팩은 import(), require.ensure()를 위해 Promise가 필요합니다. 구형브라우저라면 이에 대한 polyfill이 필요합니다.
+
+## 과제
+
+위에서 언급된 기본값의 조합으로 webpack.config.js의 전체 코드를 작성하시오.
